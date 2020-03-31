@@ -72,9 +72,17 @@
                                     @if($check==1)
                                         <option value="{{$time->time}}" disabled>{{date("g:ia", strtotime($time->time))}} (hết chỗ)</option>
                                     @elseif($check==2)
-                                        <option value="{{$time->time}}" disabled>{{date("g:ia", strtotime($time->time))}} (quá giờ)</option>
+                                        <option value="{{$time->time}}" disabled>{{date("g:ia", strtotime($time->time))}} (quá giờ)
+                                        <?php
+                                            echo $check;
+                                        ?>
+                                        </option>
                                     @else
-                                        <option value="{{$time->time}}">{{date("g:ia", strtotime($time->time))}}</option>
+                                        <option value="{{$time->time}}">{{date("g:ia", strtotime($time->time))}}
+                                        <?php
+                                            echo $check;
+                                        ?>
+                                        </option>
                                     @endif
                                             <?php
                                                 $check = 0;
@@ -91,9 +99,17 @@
                                         @endif
                                     @endforeach
                                     @if($check==1)
-                                        <option value="{{$time->time}}" disabled>{{date("g:ia", strtotime($time->time))}} (hết chỗ)</option>
+                                        <option value="{{$time->time}}" disabled>{{date("g:ia", strtotime($time->time))}} (hết chỗ)
+                                        <?php
+                                            echo $check;
+                                        ?>
+                                        </option>
                                     @else
-                                        <option value="{{$time->time}}">{{date("g:ia", strtotime($time->time))}}</option>
+                                        <option value="{{$time->time}}">{{date("g:ia", strtotime($time->time))}}
+                                        <?php
+                                            echo $check;
+                                        ?>
+                                        </option>
                                     @endif
                                             <?php
                                                 $check = 0;

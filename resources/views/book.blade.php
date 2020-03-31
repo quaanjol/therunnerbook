@@ -49,7 +49,7 @@
                             date_default_timezone_set("Asia/Ho_Chi_Minh");
                             $current = date("H:ia");
                             $today = date('d/m/Y');
-                            // echo $today;
+                            echo $today;
                         ?>
                         <select id="book_time" name="book_time" class="form-control" required>
                             <option value="0" selected disabled>Chọn giờ chơi</option>
@@ -59,8 +59,8 @@
                                         @if($book->book_time==$time->time && $book->book_date==$mydate && $book->room_id == $room->id)
                                             <?php
                                                 $check = 1;
-                                                dd($check);
                                             ?>
+                                            
                                         @elseif(date("H:ia", strtotime($time->time)) < $current)
                                             <?php
                                                 $check = 2;

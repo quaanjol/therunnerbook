@@ -73,7 +73,7 @@
                                         <option value="{{$time->time}}" disabled>{{date("g:ia", strtotime($time->time))}} (hết chỗ)</option>
                                     @elseif($check==2)
                                         <option value="{{$time->time}}" disabled>{{date("g:ia", strtotime($time->time))}} (quá giờ)</option>
-                                    @else
+                                    @elseif($check==0)
                                         <option value="{{$time->time}}">{{date("g:ia", strtotime($time->time))}}
                                             <?php
                                                 echo date("H:ia", strtotime($time->time));
@@ -98,7 +98,7 @@
                                     @endforeach
                                     @if($check==1)
                                         <option value="{{$time->time}}" disabled>{{date("g:ia", strtotime($time->time))}} (hết chỗ)</option>
-                                    @else
+                                    @elseif($check==0)
                                         <option value="{{$time->time}}">{{date("g:ia", strtotime($time->time))}}
                                             <?php
                                                 echo date("H:ia", strtotime($time->time));

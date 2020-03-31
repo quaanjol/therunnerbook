@@ -197,11 +197,11 @@ class BookController extends Controller
             $room = \App\Room::find($book->room_id);
             $request->session()->flash('success', 'Phòng đã được huỷ từ trước!');
 
-            return redirect()->action('FrontendController@welcome');
+            return redirect()->action('frontendController@welcome');
         }
         $book->delete();
         $request->session()->flash('success', 'Huỷ đặt phòng thành công!');
 
-        return redirect()->action('FrontendController@welcome');
+        return redirect()->action('frontendController@welcome');
     }
 }

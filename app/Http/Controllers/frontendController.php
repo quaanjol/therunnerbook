@@ -132,7 +132,7 @@ class frontendController extends Controller
         if($book == null){
             $request->session()->flash('success', 'Phòng đã được huỷ từ trước hoặc thông tin không hợp lệ. ');
 
-            return redirect()->action('FrontendController@welcome');
+            return redirect()->action('frontendController@welcome');
         } elseif($book->customer_name == $name && $book->customer_email == $email){
             $codes = discount_code::all();
             $thiscode = 0;
@@ -154,7 +154,7 @@ class frontendController extends Controller
             );
         } else{
             $request->session()->flash('danger', 'Thông tin đặt phòng không chính xác. Vui lòng kiểm tra lại!');
-            return redirect()->action('FrontendController@welcome');
+            return redirect()->action('frontendController@welcome');
         }
 
     }

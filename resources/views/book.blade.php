@@ -62,13 +62,13 @@
                                                 $check = 1;
                                             ?>
                                             @break
-                                        @elseif(date("H:i", strtotime($time->time)) < $current)
+                                        @endif 
+                                    @endforeach
+                                        @if(date("H:i", strtotime($time->time)) < $current)
                                             <?php
                                                 $check = 2;
                                             ?>
-                                            @break
-                                        @endif 
-                                    @endforeach
+                                        @endif
                                     @if($check==1)
                                         <option value="{{$time->time}}" disabled>{{date("g:ia", strtotime($time->time))}} (hết chỗ)</option>
                                     @elseif($check==2)

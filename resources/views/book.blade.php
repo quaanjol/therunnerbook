@@ -59,6 +59,7 @@
                                         @if($book->book_time==$time->time && $book->book_date==$mydate && $book->room_id == $room->id)
                                             <?php
                                                 $check = 1;
+                                                dd($check);
                                             ?>
                                         @elseif(date("H:ia", strtotime($time->time)) < $current)
                                             <?php

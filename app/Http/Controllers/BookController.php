@@ -49,11 +49,11 @@ class BookController extends Controller
             $count = $lsBook->get()->count();
             $lsBook = $lsBook->paginate($lsBook->count());
         } elseif (!$filter && $search && !$date) {
-            $lsBook = \App\Book::where('customer_name', 'like', "%$search%");
+            $lsBook = \App\Book::withTrashed()->where('customer_name', 'like', "%$search%");
             $count = $lsBook->get()->count();
             $lsBook = $lsBook->paginate($lsBook->count());
         } elseif (!$filter && !$search && $date) {
-            $lsBook = \App\Book::where('book_date', '=', "$date");
+            $lsBook = \App\Book::withTrashed()->where('book_date', '=', "$date");
             $count = $lsBook->get()->count();
             $lsBook = $lsBook->paginate($lsBook->count());
             // dd($lsBook);
@@ -71,7 +71,7 @@ class BookController extends Controller
             $count = $lsBook->get()->count();
             $lsBook = $lsBook->paginate($lsBook->count());
         } elseif (!$filter&& $search && $date){
-            $lsBook = \App\Book::where([
+            $lsBook = \App\Book::withTrashed()->where([
                 ['customer_name', 'like', "%$search%"],
                 ['book_date', '=', "$date"]
             ]);

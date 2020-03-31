@@ -20,7 +20,6 @@ class CreateDiscountCodesTable extends Migration
             $table->integer('value');
             
             $table->timestamps();
-            $table->date('deleted_at');
         });
     }
 

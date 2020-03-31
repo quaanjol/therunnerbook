@@ -49,7 +49,8 @@
                             date_default_timezone_set("Asia/Ho_Chi_Minh");
                             $current = date("H:ia");
                             $today = date('d/m/Y');
-                            echo $mydate;
+                            echo date('d/m/Y', strtotime($mydate));
+                            echo $today;
                         ?>
                         <select id="book_time" name="book_time" class="form-control" required>
                             <option value="0" selected disabled>Chọn giờ chơi</option>

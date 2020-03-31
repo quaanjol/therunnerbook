@@ -81,6 +81,7 @@
                                         <option value="{{$time->time}}">{{date("g:ia", strtotime($time->time))}}
                                         <?php
                                             echo $check;
+                                            dd($check);
                                         ?>
                                         </option>
                                     @endif

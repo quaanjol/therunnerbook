@@ -64,7 +64,7 @@
                                             <?php
                                                 $check = 2;
                                             ?>
-                                        @endif
+                                        @endif 
                                     @endforeach
                                     @if($check==1)
                                         <option value="{{$time->time}}" disabled>{{date("g:ia", strtotime($time->time))}} (hết chỗ)</option>

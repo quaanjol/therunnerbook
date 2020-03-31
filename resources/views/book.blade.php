@@ -76,6 +76,10 @@
                                         </option>
                                     @else
                                         <option value="{{$time->time}}">{{date("g:ia", strtotime($time->time))}}
+                                            <?php
+                                                echo date("H:ia", strtotime($time->time));
+                                                echo $current;
+                                            ?>
                                         </option>
                                     @endif
                                             <?php

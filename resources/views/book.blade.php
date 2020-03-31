@@ -47,7 +47,7 @@
                         <label for="book_time" class="text-white">Giờ chơi</label>
                         <?php
                             date_default_timezone_set("Asia/Ho_Chi_Minh");
-                            $current = date("g:ia");
+                            $current = date("H:ia");
                             $today = date('d/m/Y');
                             // echo date('d/m/Y', strtotime($mydate));
                             // echo $today;
@@ -62,7 +62,7 @@
                                                 $check = 1;
                                             ?>
                                             @break
-                                        @elseif(date("g:ia", strtotime($time->time)) < $current)
+                                        @elseif(date("H:ia", strtotime($time->time)) < $current)
                                             <?php
                                                 $check = 2;
                                             ?>
@@ -77,7 +77,7 @@
                                     @else
                                         <option value="{{$time->time}}">{{date("g:ia", strtotime($time->time))}}
                                             <?php
-                                                echo date("g:ia", strtotime($time->time));
+                                                echo date("H:ia", strtotime($time->time));
                                                 echo $current;
                                             ?>
                                         </option>
@@ -102,7 +102,7 @@
                                     @else
                                         <option value="{{$time->time}}">{{date("g:ia", strtotime($time->time))}}
                                             <?php
-                                                echo date("g:ia", strtotime($time->time));
+                                                echo date("H:ia", strtotime($time->time));
                                                 echo $current;
                                             ?>
                                         </option>

@@ -59,13 +59,16 @@
                         <?php
                             date_default_timezone_set("Asia/Ho_Chi_Minh");
                             $current = date("H:i");
-                            $today = date('d/m/Y');
+                            $today = date('Y/m/d');
+                            $thisyear = date('Y');
+                            $thismonth = date('m');
+                            $thisday = date('d');
                             // echo date('d/m/Y', strtotime($mydate));
                             // echo $today;
                         ?>
                         <select id="book_time" name="book_time" class="form-control" required>
                             <option value="0" selected disabled>Chọn giờ chơi</option>
-                            @if(date('d/m/Y', strtotime($mydate)) == $today)
+                            @if(date('Y/m/d', strtotime($mydate)) == $today)
                                 @foreach($lsTime as $time)
                                     @foreach($lsBook as $book)
                                         @if($book->book_time==$time->time && $book->book_date==$mydate && $book->room_id == $room->id)
@@ -91,7 +94,7 @@
                                                 $check = 0;
                                             ?>
                                 @endforeach
-                            @elseif(date('d/m/Y', strtotime($mydate)) < $today)
+                            @elseif(date('Y/m/d', strtotime($mydate)) < $today)
                                 @foreach($lsTime as $time)
                                     <option value="{{$time->time}}" disabled>{{date("g:ia", strtotime($time->time))}} (quá giờ)</option>
                                 @endforeach

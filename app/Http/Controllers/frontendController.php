@@ -129,6 +129,7 @@ class frontendController extends Controller
         $name = $request->name;
         $email = $request->email;
         $book = Book::find($id);
+        // dd($book);
         if($book == null){
             $request->session()->flash('success', 'Phòng đã được huỷ từ trước hoặc thông tin không hợp lệ. ');
 
@@ -143,7 +144,7 @@ class frontendController extends Controller
                 }
             }
             $room = Room::find($book->room_id);
-            //dd($room);
+            // dd($room);
             return view('cancel_form')->with(
                 [
                     'id' => $id,
@@ -240,5 +241,21 @@ class frontendController extends Controller
                 'thiscode' => $thiscode
             ]
         );
+    }
+
+    public function destroy($id, Request $request)
+    {
+        $book = \App\Book::find($id);
+        if ($book == null) {
+            $book = \App\Book::withTrashed()->find($id);
+            $room = \App\Room::find($book->room_id);
+            $request->session()->flash('success', 'Phòng đã được huỷ từ trước!');
+
+            return redirect()->action('frontendController@welcome');
+        }
+        $book->delete();
+        $request->session()->flash('success', 'Huỷ đặt phòng thành công!');
+
+        return redirect()->action('frontendController@welcome');
     }
 }

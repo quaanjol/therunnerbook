@@ -7,15 +7,15 @@
                 @csrf
                 <div class="form-group">
                     <label for="phone" class="text-white">Mã đặt phòng</label>
-                    <input type="text" class="form-control" id="id-form" name="id" required> 
+                    <input type="text" class="form-control db" id="id-form" name="id" required> 
                 </div>
                 <div class="form-group">
                     <label for="phone" class="text-white">Tên người đặt</label>
-                    <input type="text" class="form-control" id="name-form" name="name" required> 
+                    <input type="text" class="form-control db" id="name-form" name="name" required> 
                 </div>
                 <div class="form-group">
                     <label for="phone" class="text-white">Email</label>
-                    <input type="text" class="form-control" id="email-form" name="email" required> 
+                    <input type="text" class="form-control db" id="email-form" name="email" required> 
                 </div>
                 <div class="row">
                     <div class="col-md-6">
@@ -43,6 +43,13 @@
                             btn.innerHTML = `<a href="cancel_form.html?id=${id}&name=${name}&email=${email}" class="text-secondary">Huỷ phòng</a>`;
                             btn.style.display = 'block';
                         }
+
+                        var db = document.getElementsByClassName('db');
+                        console.log(db);
+                        db.forEach(element => element.addEventListener('click', function(){
+                            btn.innerHTML = "";
+                        }));
+
                     </script>
                 </div>  
             </form>

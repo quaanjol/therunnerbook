@@ -91,6 +91,10 @@
                                                 $check = 0;
                                             ?>
                                 @endforeach
+                            @elseif(date('d/m/Y', strtotime($mydate)) < $today)
+                                @foreach($lsTime as $time)
+                                    <option value="{{$time->time}}" disabled>{{date("g:ia", strtotime($time->time))}} (quá giờ)</option>
+                                @endforeach
                             @else
                                 @foreach($lsTime as $time)
                                     @foreach($lsBook as $book)

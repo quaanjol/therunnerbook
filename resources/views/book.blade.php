@@ -1,9 +1,20 @@
 @extends('layouts.roomapp')
 
+@section('style')
+<style>
+    @media (max-width: 768px){
+        .c-media{
+            padding: 20px !important;
+        }
+    }
+</style>
+@endsection
+
+
 @section('content')
 
 <div class="my-container">
-    <div class="container p-5">
+    <div class="container p-5 c-media">
         <h2 class="text-white">{{$room->name}}</h2>
         <p class="text-white"><b class="text-orange">Địa chỉ:</b> {{$room->address}}</p>
         <p class="text-white"><b class="text-orange">Ngày chơi:</b> {{date('D d/m/Y', strtotime($mydate))}}</p>

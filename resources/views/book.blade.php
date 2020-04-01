@@ -96,7 +96,7 @@
                                 @endforeach
                             @elseif(date('Y/m/d', strtotime($mydate)) < $today)
                                 @foreach($lsTime as $time)
-                                    <option value="{{$time->time}}" disabled>{{date("g:ia", strtotime($time->time))}} (quá giờ)</option>
+                                    <option value="{{$time->time}}" disabled>{{date("g:ia", strtotime($time->time))}} (quá ngày chơi)</option>
                                 @endforeach
                             @else
                                 @foreach($lsTime as $time)

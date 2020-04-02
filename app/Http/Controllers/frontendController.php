@@ -128,6 +128,19 @@ class frontendController extends Controller
         $id = $request->id;
         $name = $request->name;
         $email = $request->email;
+        $check = false;
+        foreach(Book::all() as $book){
+            if($book->id == $id){
+                $check = true;
+                break;
+            }
+        }
+
+        if($check == false){
+            $request->session()->flash('danger', 'Mã phòng không hợp lệ. ');
+            return redirect()->action('frontendController@welcome');
+        }
+
         $book = Book::find($id);
         // dd($book);
         if($book == null){

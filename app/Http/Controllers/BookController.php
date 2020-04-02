@@ -126,7 +126,7 @@ class BookController extends Controller
 
         $lsCode = \App\discount_code::select('name')->get();
 
-        return view('book')->with( 
+        return view('book')->with(
             [
                 'lsBook' => $lsBook,
                 'room' => $room,

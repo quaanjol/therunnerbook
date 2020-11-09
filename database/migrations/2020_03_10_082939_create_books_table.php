@@ -23,8 +23,9 @@ class CreateBooksTable extends Migration
             $table->time('book_time');
             $table->integer('status');
             $table->integer('price');
-            $table->string('code_name');
+            $table->string('code_name')->nullable();
             $table->timestamps();
+            $table->date('deleted_at')->nullable(true);
         });
     }
 
